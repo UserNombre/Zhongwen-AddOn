@@ -14,4 +14,3 @@ data\cedict_idx_t.lua
 data\cedict_ts.lua
 
 Zhongwen.xml
-debug.lua
