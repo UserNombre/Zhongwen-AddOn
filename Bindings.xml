@@ -1,0 +1,11 @@
+<Bindings>
+    <Binding name="Toggle frame" description="Toggle the Zhongwen frame" header="ZHONGWEN">
+        Zhongwen:Toggle()
+    </Binding>
+    <Binding name="Select environment text" description="Update the Zhongwen selection box with text guessed from the environment">
+        Zhongwen:UpdateSelection(Zhongwen:GetEnvironmentText())
+    </Binding>
+    <Binding name="Select chat text" description="Update the Zhongwen selection box with the last message in the active chat frame">
+        Zhongwen:UpdateSelection(Zhongwen:GetChatText())
+    </Binding>
+</Bindings>

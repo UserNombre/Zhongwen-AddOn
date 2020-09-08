@@ -1,0 +1,17 @@
+## Interface: 80300
+## Title: Zhongwen
+## Notes: Chinese-English dictionary, based on the homonymous Chrome extension
+## Version: 1.0
+## X-Credits: Original Chrome extension https://github.com/cschiller/zhongwen
+
+libs\LibStub\LibStub.lua
+libs\AceAddon-3.0\AceAddon-3.0.xml
+libs\UTF8\utf8data.lua
+libs\UTF8\utf8.lua
+
+data\cedict_idx_s.lua
+data\cedict_idx_t.lua
+data\cedict_ts.lua
+
+Zhongwen.xml
+debug.lua

@@ -1,0 +1,164 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/ ..\FrameXML\UI.xsd">
+    <Script file="Zhongwen.lua"/>
+
+    <Font name="ZhongwenZhSmallFont"  font="Fonts\ARHei.ttf"    height="16" virtual="true"/>
+    <Font name="ZhongwenZhMiddleFont" font="Fonts\ARKai_T.ttf"  height="20" virtual="true"/>
+    <Font name="ZhongwenZhBigFont"    font="Fonts\ARKai_T.ttf"  height="24" virtual="true"/>
+    <Font name="ZhongwenUTF8Font"     font="Interface\Addons\Zhongwen\data\cambriai.ttf" height="16" virtual="true"/>
+
+    <Frame name="ZhongwenFrame" inherits="BasicFrameTemplateWithInset" parent="UIParent" frameStrata="DIALOG" toplevel="true" movable="true" clampedToScreen="true" enableMouse="true" hidden="true">
+        <Size x="300" y="450"/>
+        <Anchors>
+            <Anchor point="CENTER"/>
+        </Anchors>
+        <Layers>
+            <Layer level="ARTWORK">
+                <FontString inherits="ZhongwenZhSmallFont" text="Zhongwen">
+                    <Anchors>
+                        <Anchor point="TOP" y="-1"/>
+                    </Anchors>
+                </FontString>
+            </Layer>
+        </Layers>
+        <Frames>
+
+            <Frame name="ZhongwenSelection">
+                <Size x="250" y="150"/>
+                <Anchors>
+                    <Anchor point="TOPLEFT" x="15" y="-40"/>
+                </Anchors>
+                <Backdrop bgFile="Interface\TutorialFrame\TutorialFrameBackground" edgeFile="Interface\Glues\COMMON\TextPanel-Border.PNG" tile="true">
+                    <EdgeSize>
+                        <AbsValue val="16"/>
+                    </EdgeSize>
+                    <TileSize>
+                        <AbsValue val="32"/>
+                    </TileSize>
+                    <BackgroundInsets>
+                        <AbsInset left="5" right="5" top="5" bottom="5"/>
+                    </BackgroundInsets>
+                </Backdrop>
+                <Frames>
+
+                    <ScrollFrame name="ZhongwenSelectionScroll" inherits="UIPanelScrollFrameTemplate">
+                        <Size x="235" y="140"/>
+                        <Anchors>
+                            <Anchor point="TOPLEFT" x="10" y="-5"/>
+                        </Anchors>
+                        <Layers>
+                            <Layer level="ARTWORK">
+                                <Texture name="$parentTop" file="Interface\PaperDollInfoFrame\UI-Character-ScrollBar">
+                                    <Size x="31" y="100"/>
+                                    <Anchors>
+                                        <Anchor point="TOPLEFT" relativePoint="TOPRIGHT" x="-2" y="5"/>
+                                    </Anchors>
+                                    <TexCoords left="0" right="0.484375" top="0" bottom="0.4"/>
+                                </Texture>
+                                <Texture name="$parentBottom" file="Interface\PaperDollInfoFrame\UI-Character-ScrollBar">
+                                    <Size x="31" y="100"/>
+                                    <Anchors>
+                                        <Anchor point="BOTTOMLEFT" relativePoint="BOTTOMRIGHT" x="-2" y="-2"/>
+                                    </Anchors>
+                                    <TexCoords left="0.515625" right="1.0" top="0" bottom="0.4140625"/>
+                                </Texture>
+                            </Layer>
+                        </Layers>
+                        <ScrollChild>
+
+                            <EditBox name="ZhongwenSelectionBox" multiline="true" autofocus="false">
+                                <Size x="220"/>
+                                <FontString inherits="ZhongwenZhSmallFont"/>
+
+                                <Scripts>
+                                    <OnLoad>self:EnableKeyboard(false)</OnLoad>
+                                    <OnCursorChanged function="ZhongwenSelectionBox_OnCursorChanged"/>
+                                </Scripts>
+                            </EditBox>
+
+                        </ScrollChild>
+                    </ScrollFrame>
+
+                </Frames>
+            </Frame>
+
+            <Frame name="ZhongwenDefinition">
+                <Size x="250" y="200"/>
+                <Anchors>
+                    <Anchor relativeTo="ZhongwenSelection" relativePoint="BOTTOMLEFT" point="TOPLEFT" y="-30"/>
+                </Anchors>
+                <Backdrop bgFile="Interface\TutorialFrame\TutorialFrameBackground" edgeFile="Interface\Glues\COMMON\TextPanel-Border.PNG" tile="true">
+                    <EdgeSize>
+                        <AbsValue val="16"/>
+                    </EdgeSize>
+                    <TileSize>
+                        <AbsValue val="32"/>
+                    </TileSize>
+                    <BackgroundInsets>
+                        <AbsInset left="5" right="5" top="5" bottom="5"/>
+                    </BackgroundInsets>
+                </Backdrop>
+                <Frames>
+
+                <ScrollFrame name="ZhongwenDefinitionScroll" inherits="UIPanelScrollFrameTemplate">
+                    <Size x="235" y="190"/>
+                    <Anchors>
+                        <Anchor point="TOPLEFT" x="10" y="-5"/>
+                    </Anchors>
+                    <Layers>
+                        <Layer level="ARTWORK">
+                            <Texture name="$parentTop" file="Interface\PaperDollInfoFrame\UI-Character-ScrollBar">
+                                <Size x="31" y="100"/>
+                                <Anchors>
+                                    <Anchor point="TOPLEFT" relativePoint="TOPRIGHT" x="-2" y="5"/>
+                                </Anchors>
+                                <TexCoords left="0" right="0.484375" top="0" bottom="0.4"/>
+                            </Texture>
+                            <Texture name="$parentBottom" file="Interface\PaperDollInfoFrame\UI-Character-ScrollBar">
+                                <Size x="31" y="100"/>
+                                <Anchors>
+                                    <Anchor point="BOTTOMLEFT" relativePoint="BOTTOMRIGHT" x="-2" y="-2"/>
+                                </Anchors>
+                                <TexCoords left="0.515625" right="1.0" top="0" bottom="0.4140625"/>
+                            </Texture>
+                        </Layer>
+                    </Layers>
+                    <ScrollChild>
+
+                        <SimpleHTML name="ZhongwenDefinitionBox">
+                            <Size x="220" y="200"/>
+                            <FontString inherits="ZhongwenZhSmallFont"/>
+                            <FontStringHeader1 inherits="ZhongwenZhBigFont"/>
+                            <FontStringHeader2 inherits="ZhongwenUTF8Font"/>
+                        </SimpleHTML>
+
+                    </ScrollChild>
+                </ScrollFrame>
+
+                </Frames>
+            </Frame>
+
+        </Frames>
+
+        <Scripts>
+            <OnLoad>table.insert(UISpecialFrames, self:GetName())</OnLoad>
+            <OnMouseDown>self:StartMoving()</OnMouseDown>
+            <OnMouseUp>self:StopMovingOrSizing()</OnMouseUp>
+        </Scripts>
+    </Frame>
+
+    <Button name="ZhongwenChatFrameButton" frameStrata="LOW" parent="UIParent">
+        <Size x="32" y="32"/>
+        <Anchors>
+            <Anchor point="CENTER" relativeTo="ChatFrame1ButtonFrame" relativePoint="CENTER"/>
+        </Anchors>
+        <NormalTexture file="Interface\Buttons\UI-RotationRight-Button-Up.PNG"/>
+        <PushedTexture file="Interface\Buttons\UI-RotationRight-Button-Down.PNG"/>
+        <HighlightTexture file="Interface\Buttons\UI-Common-MouseHilight.PNG" alphaMode="ADD"/>
+
+        <Scripts>
+            <OnClick>
+                Zhongwen:UpdateSelection(Zhongwen:GetChatText())
+            </OnClick>
+        </Scripts>
+    </Button>
+</Ui>
